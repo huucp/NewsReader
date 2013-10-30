@@ -1,11 +1,3 @@
-/**
- Export to JSON plugin for PHPMyAdmin
- @version 0.1
- */
-
-// Database 'minzbox'
-// minzbox.Information
-
 [{"ID": 26415,"URL": "http://hn.24h.com.vn/tin-thoi-tiet/khu-vuc-tp-ho-chi-minh-co-mua-to-c567a557307.html","Abstract": "Ngày hôm nay, mưa rào và dông trên khu vực TP. Hồ Chí Minh và các tỉnh Nam Bộ xuất hiện từ sáng và kéo dài cả ngày. Trong khi đó, các tỉnh Bắc và Trung Bộ thời tiết tiếp tục oi nóng, nhiệt độ phổ biến 33 – 35 độ C, có nơi 36 độ C.","Content": "<div class=\"text-conent\">
 			<div><script type=\"text/javascript\">window.onload = function () {resizeNewsImage(\"news-image\", 500);}</script><p>Một phần mây của bão Soulik ở phía đông nam Trung Quốc đã đi vào đất liền nước ta và có tác dụng ngăn nắng làm giảm nhiệt miền Bắc và dịu bớt nắng nóng ở miền Trung. Tuy nhiên vùng mây này cũng tạo ra lượng ẩm lớn như ở các tỉnh ven biển Quảng Ninh, Thái Bình phổ biến mức cao từ 85 – 88%, ở thủ đô Hà Nội độ ẩm là 75 - 80%, trời nhiều mây, đôi lúc có mưa rào và dông và kết hợp với độ ẩm cao sẵn có nên trên toàn khu vực trời khá oi nóng đặc biệt là vào buổi trưa. Khu vực bắc Trung Bộ do nhiều mây, độ ẩm cao nên cường độ nắng nóng không quá gay gắt, số điểm nắng nóng 35 – 36 độ C không dày đặc như những đợt nắng nóng trước đó.</p>
 <p>Sang ngày hôm nay, hình thế thời tiết là mây ẩm cùng với gió đông nam vẫn còn tồn tại do vậy tại hầu khắp Bắc và Trung Bộ trời oi nóng với nhiệt độ phổ biến 33 – 34 độ C ở Bắc Bộ, 35 – 36 độ C ở Trung Bộ. Ban ngày trời oi nóng đến chiều tối khi mây dông nhiệt phát triển sẽ mang đến mưa dông cho các tỉnh đồng bằng Bắc Bộ và vùng núi từ Thanh Hóa đến Hà Tĩnh, một vài nơi có khả năng xảy ra mưa dông lớn kèm theo dông lốc mạnh.</p>
