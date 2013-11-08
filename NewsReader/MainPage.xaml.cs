@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using Microsoft.Phone.Controls;
+using NewsReader.Ultility;
 using Newtonsoft.Json;
 
 namespace NewsReader
@@ -17,7 +18,14 @@ namespace NewsReader
             InitializeComponent();
 
             //LoadWebContent();
-            ParseJson();
+            //ParseJson();
+        }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            // Stop timer in title to 
+            Title.StopTimer();
         }
 
         private void ParseJson()
@@ -28,8 +36,7 @@ namespace NewsReader
             {
                 Debug.WriteLine(newsObject.Title);
             }
-
-            Web.NavigateToString(objects[0].Content);
+            
         }
 
         private string ReadFile(string filePath)
@@ -68,20 +75,5 @@ namespace NewsReader
             client.DownloadStringAsync(uri);
         }
 
-    }
-
-    /// <summary>
-    /// Store the news query result
-    /// </summary>
-    public class NewsObject
-    {
-        public uint ID;
-        public string Url;
-        public string Abstract;
-        public string Content;
-        public string Title;
-        public int SideID;
-        public string PubDate;
-        public string CrawlDate;
-    }
+    }    
 }
