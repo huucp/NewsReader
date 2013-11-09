@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
+using System;
 using System.Windows.Controls;
-using System.Windows.Navigation;
 using System.Windows.Threading;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 
-namespace NewsReader
+namespace NewsReader.View.Controls
 {
     public partial class PageTitle : UserControl
     {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -8,7 +8,7 @@ using Microsoft.Phone.Controls;
 using NewsReader.Ultility;
 using Newtonsoft.Json;
 
-namespace NewsReader
+namespace NewsReader.View
 {
     public partial class MainPage : PhoneApplicationPage
     {
