@@ -8,7 +8,7 @@ namespace NewsReader.ViewModel
 {
     public class NewsSourceViewModel : ViewModelBase
     {
-        private string _title;
+        private string _title = "title";
         public string Title
         {
             get { return _title; }
@@ -20,7 +20,7 @@ namespace NewsReader.ViewModel
             }
         }
 
-        private string _description;
+        private string _description = "description";
         public string Description
         {
             get { return _description; }

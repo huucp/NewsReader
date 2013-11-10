@@ -5,31 +5,39 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
-    xmlns:Controls="clr-namespace:NewsReader.View.Controls" x:Class="NewsReader.View.MainPage"
+    xmlns:Controls="clr-namespace:NewsReader.View.Controls" xmlns:NewsReader="clr-namespace:NewsReader" xmlns:ViewModel="clr-namespace:NewsReader.ViewModel" x:Class="NewsReader.View.MainPage"
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="False">
-
+    <phone:PhoneApplicationPage.DataContext>
+        <ViewModel:MainPageViewModel/>
+    </phone:PhoneApplicationPage.DataContext>
     <!--LayoutRoot is the root grid where all page content is placed-->
-	<Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="32"/>
-			<RowDefinition Height="86"/>
+    <Grid x:Name="LayoutRoot" Background="{StaticResource BackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="86"/>
             <RowDefinition/>
-		</Grid.RowDefinitions>
+        </Grid.RowDefinitions>
 
-       
-		<Controls:PageTitle Height="32" Margin="0" Grid.RowSpan="1" Grid.Row="0"  VerticalAlignment="Top"
-                         x:Name="Title"/>
-		<TextBlock HorizontalAlignment="Left" Margin="26,28,0,0" Grid.Row="1" TextWrapping="Wrap" 
-                   Text="Nguồn" VerticalAlignment="Top" Foreground="Black" FontSize="23"/>
-		<ListBox Margin="23,0" Grid.Row="2">			
-		</ListBox>
 
-       
-	</Grid>
- 
+        <Controls:PageTitle Height="32" Margin="0" Grid.RowSpan="1" Grid.Row="0"  VerticalAlignment="Top"
+			x:Name="Title"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,28,0,0" Grid.Row="1" TextWrapping="Wrap" 
+			Text="Nguồn" VerticalAlignment="Top" Foreground="Black" FontSize="23"/>
+        <ListBox Margin="23,0" Grid.Row="2" ItemsSource="{Binding ListSource}" CacheMode="BitmapCache">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Padding" Value="0,0,0,20"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+
+    </Grid>
+
 </phone:PhoneApplicationPage>

@@ -19,5 +19,14 @@ namespace NewsReader.ViewModel
                 NotifyPropertyChanged("ListSource");
             }
         }
+
+        public void AddToList()
+        {
+            for (int i = 0; i <20;i++)
+            {
+                var item = new NewsSource();
+                ListSource.Add(item);
+            }
+        }
     }
 }

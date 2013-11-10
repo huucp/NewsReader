@@ -6,12 +6,14 @@ using System.Net;
 using System.Windows;
 using Microsoft.Phone.Controls;
 using NewsReader.Ultility;
+using NewsReader.ViewModel;
 using Newtonsoft.Json;
 
 namespace NewsReader.View
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private MainPageViewModel _viewModel;
         // Constructor
         public MainPage()
         {
@@ -19,6 +21,9 @@ namespace NewsReader.View
 
             //LoadWebContent();
             //ParseJson();
+
+            _viewModel = (MainPageViewModel) DataContext;
+            _viewModel.AddToList();
         }
 
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
