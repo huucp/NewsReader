@@ -3,7 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ViewModel="clr-namespace:NewsReader.ViewModel" x:Class="NewsReader.View.Controls.NewsSource"
+    xmlns:ViewModel="clr-namespace:NewsReader.ViewModel" xmlns:Controls="clr-namespace:NewsReader.ViewModel.Controls"
+    x:Class="NewsReader.View.Controls.NewsSourceControl"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -11,7 +12,7 @@
     d:DesignHeight="480" d:DesignWidth="480" Height="100">
 
 	<UserControl.DataContext>
-		<ViewModel:NewsSourceViewModel/>
+		<Controls:NewsSourceControlViewModel/>
 	</UserControl.DataContext>
 
 	<Grid x:Name="LayoutRoot" Background="White">
@@ -21,11 +22,11 @@
 		</Grid.ColumnDefinitions>
 		<Image x:Name="SourceIcon" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" 
                Grid.Row="0" Source="{Binding Icon}" />
-		<TextBlock x:Name="Title" Grid.Column="1" HorizontalAlignment="Left" Margin="12,18,0,0" 
-			TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="23" FontFamily="Segoe WP"
+		<TextBlock x:Name="Title" Grid.Column="1" HorizontalAlignment="Left" Margin="12,10,0,0" 
+			TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="21.333" FontFamily="Trebuchet MS"
 			Text="{Binding Title}"/>
-		<TextBlock x:Name="Description" Grid.Column="1" Height="40" Margin="12,46,20,0" TextWrapping="Wrap" 
-			VerticalAlignment="Top" FontSize="20" TextTrimming="WordEllipsis" Foreground="#FF828282"
+		<TextBlock x:Name="Description" Grid.Column="1" Height="54" Margin="12,38,10,0" TextWrapping="Wrap" 
+			VerticalAlignment="Top" FontSize="18.667" TextTrimming="WordEllipsis" Foreground="#FF828282"
 			Text="{Binding Description}"/>
 
 	</Grid>

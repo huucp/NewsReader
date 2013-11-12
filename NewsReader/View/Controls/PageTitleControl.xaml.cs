@@ -4,12 +4,12 @@ using System.Windows.Threading;
 
 namespace NewsReader.View.Controls
 {
-    public partial class PageTitle : UserControl
+    public partial class PageTitleControl : UserControl
     {
         private DispatcherTimer _timer;
         private DateTime _currentTime;
 
-        public PageTitle()
+        public PageTitleControl()
         {
             InitializeComponent();
             SetupTime();
@@ -19,7 +19,7 @@ namespace NewsReader.View.Controls
         {
             _minuteCount = 0;
             _currentTime = DateTime.Now;
-            Time.Text = string.Format(_currentTime.Hour.ToString() + ":" + _currentTime.Minute.ToString());
+            Time.Text = FormatTime(_currentTime);
             _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(60 - _currentTime.Second) };
             _timer.Tick += _timer_Tick;
             _timer.Start();
@@ -29,7 +29,7 @@ namespace NewsReader.View.Controls
         private void _timer_Tick(object sender, EventArgs e)
         {
             _currentTime += _timer.Interval;
-            Time.Text = string.Format(_currentTime.Hour.ToString() + ":" + _currentTime.Minute.ToString());
+            Time.Text = FormatTime(_currentTime);
             if (_timer.Interval != TimeSpan.FromMinutes(1.0))
             {
                 _timer.Interval = TimeSpan.FromMinutes(1.0);
@@ -49,6 +49,15 @@ namespace NewsReader.View.Controls
         {
             _timer.Stop();
             _timer.Tick -= _timer_Tick;
+        }
+
+        public string FormatTime(DateTime time)
+        {
+            if (time.Minute<10)
+            {
+                return string.Format("{0}:{1}", time.Hour.ToString(), "0" + time.Minute.ToString());
+            }
+            return string.Format("{0}:{1}", time.Hour.ToString(), time.Minute.ToString());
         }
     }
 }

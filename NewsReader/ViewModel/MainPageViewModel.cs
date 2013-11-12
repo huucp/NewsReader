@@ -9,12 +9,12 @@ namespace NewsReader.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private ObservableCollection<NewsSource> _listSource = new ObservableCollection<NewsSource>();
-        public ObservableCollection<NewsSource> ListSource
+        private ObservableCollection<NewsSourceControl> _listSource = new ObservableCollection<NewsSourceControl>();
+        public ObservableCollection<NewsSourceControl> ListSource
         {
             get { return _listSource; }
             set
-            {                
+            {
                 _listSource = value;
                 NotifyPropertyChanged("ListSource");
             }
@@ -22,9 +22,10 @@ namespace NewsReader.ViewModel
 
         public void AddToList()
         {
-            for (int i = 0; i <20;i++)
+            for (int i = 0; i < 20; i++)
             {
-                var item = new NewsSource();
+                var item = new NewsSourceControl();
+                item.SetInfo("kenh14");
                 ListSource.Add(item);
             }
         }

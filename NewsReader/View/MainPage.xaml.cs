@@ -29,7 +29,7 @@ namespace NewsReader.View
         protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-            // Stop timer in title to 
+            // Stop timer in title to dispose this page title
             Title.StopTimer();
         }
 
@@ -78,6 +78,12 @@ namespace NewsReader.View
 
             client.DownloadStringCompleted += DownloadStringCallback;
             client.DownloadStringAsync(uri);
+        }
+
+        private void SourceListBox_OnSelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {            
+            var uri = new Uri("/View/SourceDetailPage.xaml", UriKind.Relative);
+            NavigationService.Navigate(uri);
         }
 
     }    

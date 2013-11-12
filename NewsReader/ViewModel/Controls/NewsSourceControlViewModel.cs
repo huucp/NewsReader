@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Media.Imaging;
+using NewsReader.Ultility;
 
-namespace NewsReader.ViewModel
+namespace NewsReader.ViewModel.Controls
 {
-    public class NewsSourceViewModel : ViewModelBase
+    public class NewsSourceControlViewModel : ViewModelBase
     {
         private string _title = "title";
         public string Title
@@ -43,5 +40,10 @@ namespace NewsReader.ViewModel
             }
         }
 
+        public void SetInfo(string sourceTag)
+        {
+            Title = NewsSources.GetTitle(sourceTag);
+            Description = NewsSources.GetDescription(sourceTag);
+        }
     }
 }
