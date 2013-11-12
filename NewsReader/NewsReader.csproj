@@ -74,6 +74,7 @@
     <Compile Include="Ultility\NewsSources.cs" />
     <Compile Include="Ultility\Worker.cs" />
     <Compile Include="ViewModel\Controls\NewsSourceControlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\Controls\CategoryDetailWithTitleControl.xaml.cs">

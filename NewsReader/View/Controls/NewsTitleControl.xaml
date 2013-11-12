@@ -3,21 +3,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    xmlns:Controls="clr-namespace:NewsReader.ViewModel.Controls" mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480" Height="110">
-
+    <UserControl.DataContext>
+        <Controls:NewsTitleControlViewModel/>
+    </UserControl.DataContext>    
     <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="110"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Image Margin="0" Grid.Column="0" Source="{Binding Icon}"/>
-        <TextBlock Grid.Column="1" Margin="12,0,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333" Height="60" TextTrimming="WordEllipsis" Text="Ơb" Foreground="Black"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,65,0,0" TextWrapping="Wrap" Text="Reuters" VerticalAlignment="Top" FontSize="12" Foreground="#FFBEBEBE"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,86,0,0" TextWrapping="Wrap" Text="1 giờ trước" VerticalAlignment="Top" FontSize="12" Foreground="#FF004877"/>
+        <TextBlock Grid.Column="1" Margin="12,0,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333" Height="60" TextTrimming="WordEllipsis" Text="{Binding Title}" Foreground="Black"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,65,0,0" TextWrapping="Wrap" Text="{Binding Source}" VerticalAlignment="Top" FontSize="12" Foreground="#FFBEBEBE"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,86,0,0" TextWrapping="Wrap" Text="{Binding Time}" VerticalAlignment="Top" FontSize="12" Foreground="#FF004877"/>
 
     </Grid>
 </UserControl>
