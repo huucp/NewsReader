@@ -8,6 +8,7 @@ using Microsoft.Phone.Controls;
 using NewsReader.Ultility;
 using NewsReader.ViewModel;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace NewsReader.View
 {
@@ -36,12 +37,20 @@ namespace NewsReader.View
         private void ParseJson()
         {
             string myText = ReadFile(@"Information.json");
-            var objects = JsonConvert.DeserializeObject<List<NewsObject>>(myText);
-            foreach (var newsObject in objects)
+            //var objects = JsonConvert.DeserializeObject<List<NewsJsonObject>>(myText);
+            //foreach (var newsObject in objects)
+            //{
+            //    Debug.WriteLine(newsObject.title);
+            //    Debug.WriteLine(newsObject.abstractContent);
+            //}
+            var newsObject = JsonConvert.DeserializeObject<NewsJsonObject>(myText);
+            Debug.WriteLine(newsObject.Title);
+            Debug.WriteLine(newsObject.AbstractContent);
+            foreach (var content in newsObject.NewsContent)
             {
-                Debug.WriteLine(newsObject.Title);
+                Debug.WriteLine(content.Content);
+                if (content.Images.Count>0) Debug.WriteLine(content.Images[0].Link);
             }
-            
         }
 
         private string ReadFile(string filePath)

@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <Image Margin="0" Grid.Column="0" Source="{Binding Icon}"/>
         <TextBlock Grid.Column="1" Margin="12,0,20,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="21.333" Height="60" TextTrimming="WordEllipsis" Text="{Binding Title}" Foreground="Black"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,65,0,0" TextWrapping="Wrap" Text="{Binding Source}" VerticalAlignment="Top" FontSize="12" Foreground="#FFBEBEBE"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,86,0,0" TextWrapping="Wrap" Text="{Binding Time}" VerticalAlignment="Top" FontSize="12" Foreground="#FF004877"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,65,0,0" TextWrapping="Wrap" Text="{Binding Source}" VerticalAlignment="Top" FontSize="13.333" Foreground="#FFBEBEBE"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12,86,0,0" TextWrapping="Wrap" Text="{Binding Time}" VerticalAlignment="Top" FontSize="13.333" Foreground="#FF004877"/>
 
     </Grid>
 </UserControl>

@@ -73,6 +73,7 @@
     <Compile Include="Ultility\GlobalVariables.cs" />
     <Compile Include="Ultility\NewsSources.cs" />
     <Compile Include="Ultility\Worker.cs" />
+    <Compile Include="ViewModel\Controls\CategoryDetailWithTitleControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsSourceControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
@@ -99,7 +100,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Ultility\NewsObject.cs" />
+    <Compile Include="Ultility\JsonObjectDefinition.cs" />
     <Page Include="View\Controls\CategoryDetailWithTitleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,7 +137,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="README_FIRST.txt" />
-    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />

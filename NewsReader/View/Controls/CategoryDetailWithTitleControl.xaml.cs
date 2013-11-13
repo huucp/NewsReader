@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using NewsReader.ViewModel.Controls;
 
 namespace NewsReader.View.Controls
 {
@@ -15,6 +16,8 @@ namespace NewsReader.View.Controls
         public CategoryDetailWithTitleControl()
         {
             InitializeComponent();
+
+            ((CategoryDetailWithTitleControlViewModel)DataContext).AddNews();
         }
     }
 }
