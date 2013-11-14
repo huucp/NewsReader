@@ -3,14 +3,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Controls="clr-namespace:NewsReader.ViewModel.Controls" mc:Ignorable="d"
+    xmlns:controls="clr-namespace:NewsReader.ViewModel.Controls"
+    xmlns:converter="clr-namespace:NewsReader.Ultility"         
+    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-	<UserControl.DataContext>
-		<Controls:CategoryDetailWithTitleControlViewModel/>
-	</UserControl.DataContext>    
+    <UserControl.DataContext>
+        <controls:CategoryDetailWithTitleControlViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="0,0,0,12"/>
+        </Style>
+    </UserControl.Resources>
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="6"/>
@@ -22,13 +31,16 @@
                    Margin="0,0,0,0" Stroke="#FFF4F4F4" StrokeThickness="0"/>
         <TextBlock x:Name="CategoryTitle" Margin="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Category}" FontSize="21.333" Foreground="#FF646464"/>
         <Rectangle Fill="#FF6E6E6E" Margin="0" Grid.Row="2" Stroke="#FFF4F4F4" StrokeThickness="0"/>
-        <ListBox x:Name="SourceTitleListBox" Margin="20,40,0,0" Grid.Row="3" ItemsSource="{Binding ListNews}">
-            <ListBox.ItemContainerStyle>
+        <ListBox x:Name="SourceCategoryListBox" Margin="20,40,0,0" Grid.Row="3" 
+                 Visibility="{Binding SourceCategoryListBoxVisibility}" ItemsSource="{Binding ListCategory}"/>
+        <ListBox x:Name="SourceTitleListBox" Margin="20,40,0,0" Grid.Row="3" 
+                 Visibility="{Binding SourceTitleListBoxVisibility}" ItemsSource="{Binding ListNews}">
+            <!--<ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     <Setter Property="Padding" Value="0,0,0,12"/>
                 </Style>
-            </ListBox.ItemContainerStyle>
+            </ListBox.ItemContainerStyle>-->
         </ListBox>
     </Grid>
 </UserControl>

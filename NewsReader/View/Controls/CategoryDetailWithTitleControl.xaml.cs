@@ -13,11 +13,30 @@ namespace NewsReader.View.Controls
 {
     public partial class CategoryDetailWithTitleControl : UserControl
     {
+        private CategoryDetailWithTitleControlViewModel _viewModel;
         public CategoryDetailWithTitleControl()
         {
             InitializeComponent();
 
-            ((CategoryDetailWithTitleControlViewModel)DataContext).AddNews();
+            _viewModel = (CategoryDetailWithTitleControlViewModel)DataContext;
+
+            ContainListNews = true;
+        }
+
+        public bool ContainListNews
+        {
+            set
+            {
+                _viewModel.SourceTitleListBoxVisibility = value ? Visibility.Visible : Visibility.Collapsed;
+                if (_viewModel.SourceTitleListBoxVisibility == Visibility.Visible)
+                {
+                    _viewModel.AddNews();
+                }
+                else
+                {
+                    _viewModel.AddCategory();
+                }
+            }
         }
     }
 }

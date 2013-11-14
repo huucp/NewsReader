@@ -70,16 +70,21 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ultility\Converter.cs" />
     <Compile Include="Ultility\GlobalVariables.cs" />
     <Compile Include="Ultility\NewsSources.cs" />
     <Compile Include="Ultility\Worker.cs" />
     <Compile Include="ViewModel\Controls\CategoryDetailWithTitleControlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\CategoryTitleControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsSourceControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\Controls\CategoryDetailWithTitleControl.xaml.cs">
       <DependentUpon>CategoryDetailWithTitleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\CategoryTitleControl.xaml.cs">
+      <DependentUpon>CategoryTitleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\NewsSourceControl.xaml.cs">
       <DependentUpon>NewsSourceControl.xaml</DependentUpon>
@@ -102,6 +107,10 @@
     </Page>
     <Compile Include="Ultility\JsonObjectDefinition.cs" />
     <Page Include="View\Controls\CategoryDetailWithTitleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\CategoryTitleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

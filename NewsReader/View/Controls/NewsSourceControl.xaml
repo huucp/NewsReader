@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ViewModel="clr-namespace:NewsReader.ViewModel" xmlns:Controls="clr-namespace:NewsReader.ViewModel.Controls"
+    xmlns:controls="clr-namespace:NewsReader.ViewModel.Controls"
     x:Class="NewsReader.View.Controls.NewsSourceControl"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -12,7 +12,7 @@
     d:DesignHeight="480" d:DesignWidth="480" Height="100">
 
 	<UserControl.DataContext>
-		<Controls:NewsSourceControlViewModel/>
+		<controls:NewsSourceControlViewModel/>
 	</UserControl.DataContext>
 
 	<Grid x:Name="LayoutRoot" Background="White">

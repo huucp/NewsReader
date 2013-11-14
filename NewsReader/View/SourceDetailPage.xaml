@@ -97,7 +97,7 @@
             </controls:PanoramaItem>
             <controls:PanoramaItem x:Name="Category4" Header="AnotherCateogory" Style="{StaticResource NoTitlePanoramaItemStyle}">
                 <Grid>
-                    
+                    <local:CategoryDetailWithTitleControl Margin="0" Name="ListCategory"/>
                 </Grid>
             </controls:PanoramaItem>
 		</controls:Panorama>
