@@ -78,17 +78,28 @@
         <local:PageTitleControl Grid.Row="0"/>
 		<controls:Panorama Title="my application" Grid.Row="2" Template="{StaticResource NoTitlePanoramaControlTemplate}">
 
-			<!--Panorama item one-->
-			<controls:PanoramaItem Header="item1" Style="{StaticResource NoTitlePanoramaItemStyle}">
+            <controls:PanoramaItem x:Name="Category1" Header="Category1" Style="{StaticResource NoTitlePanoramaItemStyle}">
 				<Grid>
 					<local:CategoryDetailWithTitleControl Margin="0"/>
 				</Grid>
 			</controls:PanoramaItem>
 
-			<!--Panorama item two-->
-			<controls:PanoramaItem Header="item2">
-				<Grid/>
+            <controls:PanoramaItem x:Name="Category2" Header="Category2" Style="{StaticResource NoTitlePanoramaItemStyle}">
+				<Grid>
+                    <local:CategoryDetailWithTitleControl Margin="0"/>
+                </Grid>
 			</controls:PanoramaItem>
+            
+            <controls:PanoramaItem x:Name="Category3" Header="Category3" Style="{StaticResource NoTitlePanoramaItemStyle}">
+                <Grid>
+                    <local:CategoryDetailWithTitleControl Margin="0"/>
+                </Grid>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem x:Name="Category4" Header="AnotherCateogory" Style="{StaticResource NoTitlePanoramaItemStyle}">
+                <Grid>
+                    
+                </Grid>
+            </controls:PanoramaItem>
 		</controls:Panorama>
 	</Grid>
 
