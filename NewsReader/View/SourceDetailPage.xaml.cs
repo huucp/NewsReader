@@ -10,5 +10,12 @@ namespace NewsReader.View
 
             ListCategory.ContainListNews = false;
         }
+
+        protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            // Stop timer in title to dispose page title control
+            Title.StopTimer();
+        }
     }
 }

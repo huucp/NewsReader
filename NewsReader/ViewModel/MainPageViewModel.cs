@@ -9,8 +9,8 @@ namespace NewsReader.ViewModel
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private ObservableCollection<NewsSourceControl> _listSource = new ObservableCollection<NewsSourceControl>();
-        public ObservableCollection<NewsSourceControl> ListSource
+        private ObservableCollection<NewsPaperSourceControl> _listSource = new ObservableCollection<NewsPaperSourceControl>();
+        public ObservableCollection<NewsPaperSourceControl> ListSource
         {
             get { return _listSource; }
             set
@@ -24,7 +24,7 @@ namespace NewsReader.ViewModel
         {
             for (int i = 0; i < 20; i++)
             {
-                var item = new NewsSourceControl();
+                var item = new NewsPaperSourceControl();
                 item.SetInfo("kenh14");
                 ListSource.Add(item);
             }

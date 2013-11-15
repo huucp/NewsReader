@@ -80,14 +80,17 @@
     <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\CategoryDetailPage.xaml.cs">
+      <DependentUpon>CategoryDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\CategoryDetailWithTitleControl.xaml.cs">
       <DependentUpon>CategoryDetailWithTitleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\CategoryTitleControl.xaml.cs">
       <DependentUpon>CategoryTitleControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Controls\NewsSourceControl.xaml.cs">
-      <DependentUpon>NewsSourceControl.xaml</DependentUpon>
+    <Compile Include="View\Controls\NewsPaperSourceControl.xaml.cs">
+      <DependentUpon>NewsPaperSourceControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\NewsTitleControl.xaml.cs">
       <DependentUpon>NewsTitleControl.xaml</DependentUpon>
@@ -106,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="Ultility\JsonObjectDefinition.cs" />
+    <Page Include="View\CategoryDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Controls\CategoryDetailWithTitleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,7 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Controls\NewsSourceControl.xaml">
+    <Page Include="View\Controls\NewsPaperSourceControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

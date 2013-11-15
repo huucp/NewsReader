@@ -3,9 +3,9 @@ using NewsReader.ViewModel.Controls;
 
 namespace NewsReader.View.Controls
 {
-    public partial class NewsSourceControl : UserControl
+    public partial class NewsPaperSourceControl : UserControl
     {        
-        public NewsSourceControl()
+        public NewsPaperSourceControl()
         {
             InitializeComponent();
 

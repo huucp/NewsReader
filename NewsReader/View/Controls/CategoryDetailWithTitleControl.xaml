@@ -13,8 +13,7 @@
     <UserControl.DataContext>
         <controls:CategoryDetailWithTitleControlViewModel/>
     </UserControl.DataContext>
-    <UserControl.Resources>
-        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <UserControl.Resources>        
         <Style TargetType="ListBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Padding" Value="0,0,0,12"/>

@@ -75,7 +75,7 @@
 			<RowDefinition Height="100"/>
 			<RowDefinition />
 		</Grid.RowDefinitions>
-        <local:PageTitleControl Grid.Row="0"/>
+        <local:PageTitleControl x:Name="Title" Grid.Row="0"/>
 		<controls:Panorama Title="my application" Grid.Row="2" Template="{StaticResource NoTitlePanoramaControlTemplate}">
 
             <controls:PanoramaItem x:Name="Category1" Header="Category1" Style="{StaticResource NoTitlePanoramaItemStyle}">

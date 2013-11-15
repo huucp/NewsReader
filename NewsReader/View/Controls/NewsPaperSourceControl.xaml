@@ -4,7 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:NewsReader.ViewModel.Controls"
-    x:Class="NewsReader.View.Controls.NewsSourceControl"
+    x:Class="NewsReader.View.Controls.NewsPaperSourceControl"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
