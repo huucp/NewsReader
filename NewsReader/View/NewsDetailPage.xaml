@@ -22,9 +22,11 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>                       
 		<Controls:PageTitleControl x:Name="Title" Grid.Row="0" Height="Auto" Margin="0"/>
+		<ScrollViewer x:Name="Content" Margin="0" Grid.Row="2">
+			<StackPanel x:Name="ContentPanel"/>
+		</ScrollViewer>
         
         <!--ContentPanel - place additional content here-->
-		<Grid x:Name="ContentPanel" Grid.Row="2" Margin="0"/>
 	</Grid>
 
 </phone:PhoneApplicationPage>

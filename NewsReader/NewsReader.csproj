@@ -71,11 +71,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ultility\Converter.cs" />
+    <Compile Include="Ultility\GlobalFunctions.cs" />
     <Compile Include="Ultility\GlobalVariables.cs" />
     <Compile Include="Ultility\NewsSources.cs" />
     <Compile Include="Ultility\Worker.cs" />
     <Compile Include="ViewModel\Controls\CategoryDetailWithTitleControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\CategoryTitleControlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\NewDetailPageViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsSourceControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />

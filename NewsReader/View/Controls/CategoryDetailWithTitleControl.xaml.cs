@@ -38,5 +38,17 @@ namespace NewsReader.View.Controls
                 }
             }
         }
+
+        private void SourceCategoryListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var uri = new Uri("/View/CategoryDetailPage.xaml", UriKind.Relative);
+            ((PhoneApplicationFrame) Application.Current.RootVisual).Navigate(uri);  
+        }
+
+        private void SourceTitleListBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var uri = new Uri("/View/NewsDetailPage.xaml", UriKind.Relative);
+            ((PhoneApplicationFrame)Application.Current.RootVisual).Navigate(uri);  
+        }
     }
 }

@@ -31,9 +31,11 @@
         <TextBlock x:Name="CategoryTitle" Margin="0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Category}" FontSize="21.333" Foreground="#FF646464"/>
         <Rectangle Fill="#FF6E6E6E" Margin="0" Grid.Row="2" Stroke="#FFF4F4F4" StrokeThickness="0"/>
         <ListBox x:Name="SourceCategoryListBox" Margin="20,40,0,0" Grid.Row="3" 
-                 Visibility="{Binding SourceCategoryListBoxVisibility}" ItemsSource="{Binding ListCategory}"/>
+                 Visibility="{Binding SourceCategoryListBoxVisibility}" ItemsSource="{Binding ListCategory}"
+                 SelectionChanged="SourceCategoryListBox_OnSelectionChanged"/>
         <ListBox x:Name="SourceTitleListBox" Margin="20,40,0,0" Grid.Row="3" 
-                 Visibility="{Binding SourceTitleListBoxVisibility}" ItemsSource="{Binding ListNews}">
+                 Visibility="{Binding SourceTitleListBoxVisibility}" ItemsSource="{Binding ListNews}"
+                 SelectionChanged="SourceTitleListBox_OnSelectionChanged">
             <!--<ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
