@@ -75,10 +75,7 @@ namespace NewsReader.View
         }
 
         private void AddTitle(string title, string date)
-        {
-            var tb = new TitleTextBlock();
-            tb.SetTitle(title);
-            tb.SetPublicDate(date);
+        {            
             var tb = new TitleTextBlock();
             tb.SetTitle(title);
             tb.SetPublicDate(date);
