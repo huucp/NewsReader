@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Microsoft.Phone.Controls;
 using NewsReader.Ultility;
+using NewsReader.View.Controls;
 using Newtonsoft.Json;
 
 namespace NewsReader.View
@@ -16,27 +19,6 @@ namespace NewsReader.View
         {
             InitializeComponent();
             ParseJson();
-        }
-
-        private void ParseJson()
-        {
-            string myText = ReadFile(@"Information.json");
-            //var objects = JsonConvert.DeserializeObject<List<NewsJsonObject>>(myText);
-            //foreach (var newsObject in objects)
-            //{
-            //    Debug.WriteLine(newsObject.title);
-            //    Debug.WriteLine(newsObject.abstractContent);
-            //}
-            //} 
-            if (myText == string.Empty) return;
-            var newsObject = JsonConvert.DeserializeObject<NewsJsonObject>(myText);
-            AddTitle(newsObject.Title);
-            AddSource(newsObject.AbstractContent);
-            foreach (var content in newsObject.NewsContent)
-            {
-                Debug.WriteLine(content.Content);
-                if (content.Images.Count > 0) Debug.WriteLine(content.Images[0].Link);
-            }
         }
 
         private string ReadFile(string filePath)
@@ -57,25 +39,59 @@ namespace NewsReader.View
             return string.Empty;
         }
 
-        private void AddTitle(string title)
+        private void ParseJson()
         {
-            var foregroundColor = GlobalFunctions.ConvertStringToColor("#164a6e");
-            var tb = new TextBlock()
+            string myText = ReadFile(@"Information.json");
+            if (myText == string.Empty) return;
+            var newsObject = JsonConvert.DeserializeObject<NewsJsonObject>(myText);
+            AddTitle(newsObject.Title, newsObject.PubDate);
+            AddSource(newsObject.AbstractContent);
+            foreach (var content in newsObject.NewsContent)
             {
-                Foreground = new SolidColorBrush(foregroundColor),
-                FontFamily = new FontFamily("Segoe WP"),
-                FontSize = 32,
-                Text = title,
-                //TextAlignment = TextAlignment.Justify
-                TextWrapping = TextWrapping.Wrap,
-                Margin = new Thickness(20,0,20,0)
-            };
+                AddContent(content.Content);
+                if (content.Images.Count > 0)
+                {
+                    AddImage(content.Images);
+                }
+            }
+        }
+
+        private void AddImage(List<ImageJsonObject> images)
+        {
+            foreach (var imageJsonObject in images)
+            {
+                var image = new NewsImage();
+                var imageDownload = new ImageDownload(imageJsonObject.Link, image);
+                imageDownload.DownloadCompleted += imageDownload_DownloadCompleted;
+                image.SetDescription(imageJsonObject.Descript);
+                ContentPanel.Children.Add(image);
+                GlobalVariables.ImageWorker.AddDownload(imageDownload);
+            }
+        }
+
+        private void imageDownload_DownloadCompleted(BitmapImage sender, NewsImage image)
+        {
+            image.SetImageSource(sender);            
+        }
+
+        private void AddTitle(string title, string date)
+        {
+            var tb = new TitleTextBlock();
+            tb.SetTitle(title);
+            tb.SetPublicDate(date);
             ContentPanel.Children.Add(tb);
         }
 
         private void AddSource(string source)
         {
-            
+
         }
+        private void AddContent(string content)
+        {
+            var tb = new NewsTextBlock();
+            tb.SetContent(content);
+            ContentPanel.Children.Add(tb);
+        }
+
     }
 }

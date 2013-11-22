@@ -71,15 +71,20 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ultility\Converter.cs" />
+    <Compile Include="Ultility\FileNameFromURL.cs" />
     <Compile Include="Ultility\GlobalFunctions.cs" />
     <Compile Include="Ultility\GlobalVariables.cs" />
+    <Compile Include="Ultility\LimitedItemImageDictionary.cs" />
     <Compile Include="Ultility\NewsSources.cs" />
     <Compile Include="Ultility\Worker.cs" />
     <Compile Include="ViewModel\Controls\CategoryDetailWithTitleControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\CategoryTitleControlViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewDetailPageViewModel.cs" />
+    <Compile Include="ViewModel\Controls\NewsImageViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsSourceControlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\NewsTextBlockViewModel.cs" />
     <Compile Include="ViewModel\Controls\NewsTitleControlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\TitleTextBlockViewModel.cs" />
     <Compile Include="ViewModel\MainPageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\CategoryDetailPage.xaml.cs">
@@ -91,14 +96,23 @@
     <Compile Include="View\Controls\CategoryTitleControl.xaml.cs">
       <DependentUpon>CategoryTitleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\NewsImage.xaml.cs">
+      <DependentUpon>NewsImage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\NewsPaperSourceControl.xaml.cs">
       <DependentUpon>NewsPaperSourceControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\NewsTextBlock.xaml.cs">
+      <DependentUpon>NewsTextBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\NewsTitleControl.xaml.cs">
       <DependentUpon>NewsTitleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Controls\PageTitleControl.xaml.cs">
       <DependentUpon>PageTitleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\TitleTextBlock.xaml.cs">
+      <DependentUpon>TitleTextBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -126,9 +140,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Controls\NewsImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Controls\NewsPaperSourceControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\NewsTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Controls\NewsTitleControl.xaml">
       <SubType>Designer</SubType>
@@ -137,6 +159,10 @@
     <Page Include="View\Controls\PageTitleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Controls\TitleTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
