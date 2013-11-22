@@ -1,11 +1,170 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using NewsReader.View.Controls;
 
 namespace NewsReader.Ultility
 {
+    public class ImageDownload
+    {
+        public delegate void DownloadSuccessfullyEventHandler(BitmapImage sender, NewsImage image);
+
+        public event DownloadSuccessfullyEventHandler DownloadCompleted;
+
+        //public void OnDownloadCompleted(BitmapImage sender)
+        //{
+        //    OnDownloadCompleted(sender, default(NewsImage));
+        //}
+
+        public void OnDownloadCompleted(BitmapImage sender, NewsImage image)
+        {
+            DownloadSuccessfullyEventHandler handler = DownloadCompleted;
+            if (handler != null) handler(sender, image);
+        }
+
+
+        public delegate void DownloadErrorEventHandler(object sender, string msg);
+
+        public event DownloadErrorEventHandler DownloadFailed;
+
+        public void OnDownloadFailed(object sender, string msg)
+        {
+            DownloadErrorEventHandler handler = DownloadFailed;
+            if (handler != null) handler(sender, msg);
+        }
+
+
+        private string ImageUrl { get; set; }
+        private NewsImage ImageSource { get; set; }
+        public ImageDownload(string url, NewsImage image)
+        {
+            ImageUrl = url;
+            ImageSource = image;
+        }
+
+        public void Process()
+        {
+            string filename = GlobalFunctions.GenerateNameFromUrl(ImageUrl);
+            if (GlobalVariables.ImageDictionary.Contain(filename))
+            {
+                OnDownloadCompleted(GlobalVariables.ImageDictionary.GetImage(filename), ImageSource);
+                return;
+            }
+            DownloadRemoteImage(ImageUrl, filename);
+        }
+
+        private void DownloadRemoteImage(string imageUrl, string filename)
+        {
+            if (string.IsNullOrWhiteSpace(imageUrl))
+            {
+                OnDownloadFailed(null, "URL invalid");
+                return;
+            }
+            DownloadImageFromUrl(imageUrl, filename);
+        }
+
+        private void DownloadImageFromUrl(string url, string filename)
+        {
+            Uri urlUri;
+            try
+            {
+                urlUri = new Uri(url);
+            }
+            catch (Exception e)
+            {
+                OnDownloadFailed(null, e.Message);
+                return;
+            }
+            var client = new WebClient();
+
+            client.OpenReadCompleted +=
+                delegate(object o, OpenReadCompletedEventArgs args)
+                {
+                    if (args.Error != null || args.Cancelled)
+                    {
+                        if (args.Error != null) OnDownloadFailed(null, args.Error.Message);
+                        else OnDownloadFailed(null, "Cancel download");
+                        return;
+                    }
+                    try
+                    {
+                        Deployment.Current.Dispatcher.BeginInvoke(() =>
+                        {
+                            var bi = new BitmapImage();
+                            bi.SetSource(args.Result);
+                            //GlobalVariables.ImageDict.Add(url, bi);
+                            OnDownloadCompleted(bi, ImageSource);
+                            GlobalVariables.ImageDictionary.Add(filename, bi);
+                        });
+                    }
+                    catch (Exception e)
+                    {
+                        OnDownloadFailed(e, e.Message);
+                        throw;
+                    }
+                };
+            client.OpenReadAsync(urlUri);
+        }
+    }
+
+    /// <summary>
+    /// Worker for download image
+    /// </summary>
+    public class ImageDownloadWorker
+    {
+        private Thread backgroundWorker;
+
+        private BlockingQueue<ImageDownload> ListsJobs = new BlockingQueue<ImageDownload>();
+
+
+        private static readonly ImageDownloadWorker _instance = new ImageDownloadWorker();
+        public static ImageDownloadWorker Instance
+        {
+            get { return _instance; }
+        }
+
+        // Explicit static constructor to tell C# compiler not to mark type as BeforeFieldInit
+        static ImageDownloadWorker()
+        {
+
+        }
+
+        private ImageDownloadWorker()
+        {
+            backgroundWorker = new Thread(MainProcess)
+            {
+                IsBackground = true,
+                Name = "Image Download Worker",
+            };
+
+            backgroundWorker.Start();
+        }
+
+        public void AddDownload(ImageDownload request)
+        {
+            ListsJobs.Add(request);
+        }
+
+        public void ClearAll()
+        {
+            ListsJobs.ClearAll();
+        }
+
+        private void MainProcess()
+        {
+            while (true)
+            {
+                var currentJob = ListsJobs.Get();
+                if (currentJob == null) continue;
+                currentJob.Process();
+            }
+        }
+    }
 
     /// <summary>
     /// Worker for process all server request
@@ -20,9 +179,7 @@ namespace NewsReader.Ultility
             get { return _instance; }
         }
 
-
-        // Explicit static constructor to tell C# compiler
-        // not to mark type as beforefieldinit
+        // Explicit static constructor to tell C# compiler not to mark type as BeforeFieldInit
         static NewsWorker()
         {
 

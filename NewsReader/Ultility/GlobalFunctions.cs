@@ -34,5 +34,12 @@ namespace NewsReader.Ultility
 
             return Color.FromArgb(a, r, g, b);
         }
+
+        public static string GenerateNameFromUrl(string url)
+        {
+            var generator = new FileNameFromURL(url);
+            return generator.Convert();
+        }
+        
     }
 }
