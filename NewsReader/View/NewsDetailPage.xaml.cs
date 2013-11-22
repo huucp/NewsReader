@@ -79,6 +79,9 @@ namespace NewsReader.View
             var tb = new TitleTextBlock();
             tb.SetTitle(title);
             tb.SetPublicDate(date);
+            var tb = new TitleTextBlock();
+            tb.SetTitle(title);
+            tb.SetPublicDate(date);
             ContentPanel.Children.Add(tb);
         }
 
