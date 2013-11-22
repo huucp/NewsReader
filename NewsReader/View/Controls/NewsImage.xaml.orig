@@ -1,0 +1,36 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:NewsReader.ViewModel.Controls" x:Class="NewsReader.View.Controls.NewsImage"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+	<UserControl.DataContext>
+		<Controls:NewsImageViewModel/>
+	</UserControl.DataContext>
+    
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height="Auto"/>
+<<<<<<< HEAD
+			<RowDefinition/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+		<Image Margin="0" HorizontalAlignment="Center" MaxWidth="400" Source="{Binding ImageSource}"/>
+		<TextBlock Margin="20,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Description}" Foreground="#FF666666"/>
+		<Rectangle Fill="#FFDDDDDD" Height="4" Margin="20,0" Grid.Row="3" Stroke="#FFE7E7E7" VerticalAlignment="Top"/>
+=======
+		</Grid.RowDefinitions>
+		<Image Margin="0" HorizontalAlignment="Center" MaxWidth="400" Source="{Binding ImageSource}"/>
+		<TextBlock Margin="20,0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Description}"/>
+>>>>>>> fdcb110b619ef6f5b564d1f7c641ef68c0fe56fd
+
+	</Grid>
+</UserControl>
