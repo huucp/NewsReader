@@ -12,7 +12,7 @@ namespace NewsReader.Ultility
 {
     public class ImageDownload
     {
-        public delegate void DownloadSuccessfullyEventHandler(BitmapImage sender, NewsImage image);
+        public delegate void DownloadSuccessfullyEventHandler(BitmapImage sender);
 
         public event DownloadSuccessfullyEventHandler DownloadCompleted;
 
@@ -21,10 +21,10 @@ namespace NewsReader.Ultility
         //    OnDownloadCompleted(sender, default(NewsImage));
         //}
 
-        public void OnDownloadCompleted(BitmapImage sender, NewsImage image)
+        public void OnDownloadCompleted(BitmapImage sender)
         {
             DownloadSuccessfullyEventHandler handler = DownloadCompleted;
-            if (handler != null) handler(sender, image);
+            if (handler != null) handler(sender);
         }
 
 
@@ -39,12 +39,10 @@ namespace NewsReader.Ultility
         }
 
 
-        private string ImageUrl { get; set; }
-        private NewsImage ImageSource { get; set; }
-        public ImageDownload(string url, NewsImage image)
+        private string ImageUrl { get; set; }       
+        public ImageDownload(string url)
         {
-            ImageUrl = url;
-            ImageSource = image;
+            ImageUrl = url;            
         }
 
         public void Process()
@@ -52,7 +50,7 @@ namespace NewsReader.Ultility
             string filename = GlobalFunctions.GenerateNameFromUrl(ImageUrl);
             if (GlobalVariables.ImageDictionary.Contain(filename))
             {
-                OnDownloadCompleted(GlobalVariables.ImageDictionary.GetImage(filename), ImageSource);
+                OnDownloadCompleted(GlobalVariables.ImageDictionary.GetImage(filename));
                 return;
             }
             DownloadRemoteImage(ImageUrl, filename);
@@ -98,7 +96,7 @@ namespace NewsReader.Ultility
                             var bi = new BitmapImage();
                             bi.SetSource(args.Result);
                             //GlobalVariables.ImageDict.Add(url, bi);
-                            OnDownloadCompleted(bi, ImageSource);
+                            OnDownloadCompleted(bi);
                             GlobalVariables.ImageDictionary.Add(filename, bi);
                         });
                     }

@@ -25,8 +25,8 @@
 		<ScrollViewer x:Name="Content" Margin="0" Grid.Row="2">
 			<StackPanel x:Name="ContentPanel"/>
 		</ScrollViewer>
-        
-        <!--ContentPanel - place additional content here-->
+		<Controls:LoadingControl x:Name="Loading" Margin="0" Grid.Row="2"/>
+		<Controls:InternetOptionControl x:Name="InternetOption" Margin="0" Grid.Row="2"/>              
 	</Grid>
 
 </phone:PhoneApplicationPage>

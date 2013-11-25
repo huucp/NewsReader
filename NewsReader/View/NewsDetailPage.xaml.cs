@@ -54,28 +54,20 @@ namespace NewsReader.View
                     AddImage(content.Images);
                 }
             }
+            Loading.Visibility = Visibility.Collapsed;
         }
 
         private void AddImage(List<ImageJsonObject> images)
         {
             foreach (var imageJsonObject in images)
             {
-                var image = new NewsImage();
-                var imageDownload = new ImageDownload(imageJsonObject.Link, image);
-                imageDownload.DownloadCompleted += imageDownload_DownloadCompleted;
-                image.SetDescription(imageJsonObject.Descript);
+                var image = new NewsImage(imageJsonObject.Link, imageJsonObject.Descript);
                 ContentPanel.Children.Add(image);
-                GlobalVariables.ImageWorker.AddDownload(imageDownload);
             }
         }
 
-        private void imageDownload_DownloadCompleted(BitmapImage sender, NewsImage image)
-        {
-            image.SetImageSource(sender);            
-        }
-
         private void AddTitle(string title, string date)
-        {            
+        {
             var tb = new TitleTextBlock();
             tb.SetTitle(title);
             tb.SetPublicDate(date);

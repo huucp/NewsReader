@@ -15,19 +15,25 @@ namespace NewsReader.View.Controls
     public partial class NewsImage : UserControl
     {
         private NewsImageViewModel _viewModel;
-        public NewsImage()
+        private NewsImage()
         {
             InitializeComponent();
 
             _viewModel = (NewsImageViewModel)DataContext;
         }
 
-        public void SetImageSource(BitmapImage image)
+        public NewsImage(string url, string description):this()
         {
-            _viewModel.ImageSource = image;
+            SetImageUrl(url);
+            SetDescription(description);            
         }
 
-        public void SetDescription(string description)
+        private void SetImageUrl(string url)
+        {
+            _viewModel.GetImage(url);
+        }
+
+        private void SetDescription(string description)
         {
             _viewModel.Description = description;
         }

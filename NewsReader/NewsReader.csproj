@@ -96,6 +96,12 @@
     <Compile Include="View\Controls\CategoryTitleControl.xaml.cs">
       <DependentUpon>CategoryTitleControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\InternetOptionControl.xaml.cs">
+      <DependentUpon>InternetOptionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\LoadingControl.xaml.cs">
+      <DependentUpon>LoadingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\NewsImage.xaml.cs">
       <DependentUpon>NewsImage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +143,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Controls\CategoryTitleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\InternetOptionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\LoadingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
